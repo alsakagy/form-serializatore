@@ -119,6 +119,7 @@
             // 
             // Elimina_Oggetti
             // 
+            this.Elimina_Oggetti.Enabled = false;
             this.Elimina_Oggetti.Location = new System.Drawing.Point(543, 460);
             this.Elimina_Oggetti.Name = "Elimina_Oggetti";
             this.Elimina_Oggetti.Size = new System.Drawing.Size(154, 47);
@@ -129,6 +130,7 @@
             // 
             // Modifica_Oggetti
             // 
+            this.Modifica_Oggetti.Enabled = false;
             this.Modifica_Oggetti.Location = new System.Drawing.Point(724, 460);
             this.Modifica_Oggetti.Name = "Modifica_Oggetti";
             this.Modifica_Oggetti.Size = new System.Drawing.Size(154, 47);

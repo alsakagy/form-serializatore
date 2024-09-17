@@ -29,12 +29,14 @@ namespace form_serializatore
             // caricamento lista
             Sr = new StreamReader(File);
             string Riga = Sr.ReadLine();
-            do
+            while (Riga != null)
             {
-
+                Persona Oggetto = new Persona(Riga.Split(';')[0], Riga.Split(';')[1], Riga.Split(';')[2]);
+                PersonaLista.Add(Oggetto);
                 Riga = Sr.ReadLine();
-            } while (Riga != null);
+            }
             Sr.Close();
+
         }
 
         private void Inserisci_Oggetto_Click(object sender, EventArgs e)
