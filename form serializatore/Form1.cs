@@ -39,7 +39,6 @@ namespace form_serializatore
                     Riga = Sr.ReadLine();
                 }
                 Sr.Close();
-                MessageBox.Show("sono stati caricati gli oggetti dal file");
             }
             catch(Exception)
             {
@@ -71,12 +70,19 @@ namespace form_serializatore
         {
             PersonaLista.RemoveAt(Lista_Oggetti.SelectedIndex);
             Lista_Oggetti.Items.RemoveAt(Lista_Oggetti.SelectedIndex);
+            Elimina_Oggetti.Enabled = false;
+            Modifica_Oggetti.Enabled = false;
         }
 
         private void Lista_Oggetti_SelectedIndexChanged(object sender, EventArgs e)
         {
             Elimina_Oggetti.Enabled = true;
             Modifica_Oggetti.Enabled = true;
+        }
+
+        private void Modifica_Oggetti_Click(object sender, EventArgs e)
+        {
+
         }
     }
     class Persona

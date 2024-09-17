@@ -138,6 +138,7 @@
             this.Modifica_Oggetti.TabIndex = 10;
             this.Modifica_Oggetti.Text = "Modifica";
             this.Modifica_Oggetti.UseVisualStyleBackColor = true;
+            this.Modifica_Oggetti.Click += new System.EventHandler(this.Modifica_Oggetti_Click);
             // 
             // Form1
             // 
