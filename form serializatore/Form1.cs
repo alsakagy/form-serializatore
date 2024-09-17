@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,7 +13,11 @@ namespace form_serializatore
 {
     public partial class Form1 : Form
     {
-        List<Persona> PersonaLista;
+        private List<Persona> PersonaLista;
+        private string File = "Elenco.txt";
+        private StreamWriter Sw;
+        private StreamReader Sr;
+
         public Form1()
         {
             InitializeComponent();
@@ -22,6 +27,14 @@ namespace form_serializatore
         {
             PersonaLista = new List<Persona>();
             // caricamento lista
+            Sr = new StreamReader(File);
+            string Riga = Sr.ReadLine();
+            do
+            {
+
+                Riga = Sr.ReadLine();
+            } while (Riga != null);
+            Sr.Close();
         }
 
         private void Inserisci_Oggetto_Click(object sender, EventArgs e)
@@ -32,6 +45,21 @@ namespace form_serializatore
             Nome_Text.Text = "";
             Cognome_Text.Text = "";
             Età_Text.Text = "";
+        }
+
+        private void Salva_Oggetti_Click(object sender, EventArgs e)
+        {
+            Sw = new StreamWriter(File);
+            for (int i = 0; i < PersonaLista.Count; i++)
+            {
+                Sw.WriteLine($"{PersonaLista[i].Nome};{PersonaLista[i].Cognome};{PersonaLista[i].Età}");
+            }
+            Sw.Close();
+        }
+
+        private void Elimina_Oggetti_Click(object sender, EventArgs e)
+        {
+
         }
     }
     class Persona

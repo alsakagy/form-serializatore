@@ -115,6 +115,7 @@
             this.Salva_Oggetti.TabIndex = 8;
             this.Salva_Oggetti.Text = "Salva";
             this.Salva_Oggetti.UseVisualStyleBackColor = true;
+            this.Salva_Oggetti.Click += new System.EventHandler(this.Salva_Oggetti_Click);
             // 
             // Elimina_Oggetti
             // 
@@ -124,6 +125,7 @@
             this.Elimina_Oggetti.TabIndex = 9;
             this.Elimina_Oggetti.Text = "Elimina";
             this.Elimina_Oggetti.UseVisualStyleBackColor = true;
+            this.Elimina_Oggetti.Click += new System.EventHandler(this.Elimina_Oggetti_Click);
             // 
             // Modifica_Oggetti
             // 
