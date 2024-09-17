@@ -27,16 +27,24 @@ namespace form_serializatore
         {
             PersonaLista = new List<Persona>();
             // caricamento lista
-            Sr = new StreamReader(File);
-            string Riga = Sr.ReadLine();
-            while (Riga != null)
+            try
             {
-                Persona Oggetto = new Persona(Riga.Split(';')[0], Riga.Split(';')[1], Riga.Split(';')[2]);
-                PersonaLista.Add(Oggetto);
-                Riga = Sr.ReadLine();
+                Sr = new StreamReader(File);
+                string Riga = Sr.ReadLine();
+                while (Riga != null)
+                {
+                    Persona Oggetto = new Persona(Riga.Split(';')[0], Riga.Split(';')[1], Riga.Split(';')[2]);
+                    PersonaLista.Add(Oggetto);
+                    Lista_Oggetti.Items.Add($"Nome: {Oggetto.Nome}   Cognome: {Oggetto.Cognome}   Età: {Oggetto.Età}");
+                    Riga = Sr.ReadLine();
+                }
+                Sr.Close();
+                MessageBox.Show("sono stati caricati gli oggetti dal file");
             }
-            Sr.Close();
-
+            catch(Exception)
+            {
+                MessageBox.Show("il file non esiste verrà creato");
+            }
         }
 
         private void Inserisci_Oggetto_Click(object sender, EventArgs e)
@@ -61,7 +69,14 @@ namespace form_serializatore
 
         private void Elimina_Oggetti_Click(object sender, EventArgs e)
         {
+            PersonaLista.RemoveAt(Lista_Oggetti.SelectedIndex);
+            Lista_Oggetti.Items.RemoveAt(Lista_Oggetti.SelectedIndex);
+        }
 
+        private void Lista_Oggetti_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Elimina_Oggetti.Enabled = true;
+            Modifica_Oggetti.Enabled = true;
         }
     }
     class Persona

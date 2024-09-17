@@ -106,6 +106,7 @@
             this.Lista_Oggetti.Name = "Lista_Oggetti";
             this.Lista_Oggetti.Size = new System.Drawing.Size(550, 394);
             this.Lista_Oggetti.TabIndex = 7;
+            this.Lista_Oggetti.SelectedIndexChanged += new System.EventHandler(this.Lista_Oggetti_SelectedIndexChanged);
             // 
             // Salva_Oggetti
             // 
