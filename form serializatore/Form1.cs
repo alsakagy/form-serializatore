@@ -84,8 +84,36 @@ namespace form_serializatore
         {
 
         }
+
+        private void Ricerca_Oggetti_Click(object sender, EventArgs e)
+        {
+            Inserisci_Oggetto.Enabled = false;
+            Elimina_Oggetti.Enabled = false;
+            Modifica_Oggetti.Enabled = false;
+            Ricerca_Oggetti.Enabled = false;
+            Lista_Oggetti.Enabled = false;
+            Avvia_Ricerca.Visible = true;
+        }
+
+        private void Avvia_Ricerca_Click(object sender, EventArgs e)
+        {
+            List<Persona> PersonaRicercata = new List<Persona>();
+            PersonaRicercata = PersonaLista.FindAll(Criterio);
+        }
+
+        public bool Criterio(Persona a)
+        {
+            if(a.Nome != Nome_Text.Text || a.Cognome != Cognome_Text.Text || a.Età != Età_Text.Text)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
     }
-    class Persona
+    public class Persona
     {
         private string nome;
         private string cognome;

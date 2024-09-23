@@ -39,6 +39,8 @@
             this.Salva_Oggetti = new System.Windows.Forms.Button();
             this.Elimina_Oggetti = new System.Windows.Forms.Button();
             this.Modifica_Oggetti = new System.Windows.Forms.Button();
+            this.Ricerca_Oggetti = new System.Windows.Forms.Button();
+            this.Avvia_Ricerca = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // Inserisci_Oggetto
@@ -140,11 +142,35 @@
             this.Modifica_Oggetti.UseVisualStyleBackColor = true;
             this.Modifica_Oggetti.Click += new System.EventHandler(this.Modifica_Oggetti_Click);
             // 
+            // Ricerca_Oggetti
+            // 
+            this.Ricerca_Oggetti.Enabled = false;
+            this.Ricerca_Oggetti.Location = new System.Drawing.Point(358, 528);
+            this.Ricerca_Oggetti.Name = "Ricerca_Oggetti";
+            this.Ricerca_Oggetti.Size = new System.Drawing.Size(520, 47);
+            this.Ricerca_Oggetti.TabIndex = 11;
+            this.Ricerca_Oggetti.Text = "Ricerca";
+            this.Ricerca_Oggetti.UseVisualStyleBackColor = true;
+            this.Ricerca_Oggetti.Click += new System.EventHandler(this.Ricerca_Oggetti_Click);
+            // 
+            // Avvia_Ricerca
+            // 
+            this.Avvia_Ricerca.Location = new System.Drawing.Point(94, 359);
+            this.Avvia_Ricerca.Name = "Avvia_Ricerca";
+            this.Avvia_Ricerca.Size = new System.Drawing.Size(154, 47);
+            this.Avvia_Ricerca.TabIndex = 12;
+            this.Avvia_Ricerca.Text = "Inizia ricerca";
+            this.Avvia_Ricerca.UseVisualStyleBackColor = true;
+            this.Avvia_Ricerca.Visible = false;
+            this.Avvia_Ricerca.Click += new System.EventHandler(this.Avvia_Ricerca_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(931, 587);
+            this.Controls.Add(this.Avvia_Ricerca);
+            this.Controls.Add(this.Ricerca_Oggetti);
             this.Controls.Add(this.Modifica_Oggetti);
             this.Controls.Add(this.Elimina_Oggetti);
             this.Controls.Add(this.Salva_Oggetti);
@@ -177,6 +203,8 @@
         private System.Windows.Forms.Button Salva_Oggetti;
         private System.Windows.Forms.Button Elimina_Oggetti;
         private System.Windows.Forms.Button Modifica_Oggetti;
+        private System.Windows.Forms.Button Ricerca_Oggetti;
+        private System.Windows.Forms.Button Avvia_Ricerca;
     }
 }
 
