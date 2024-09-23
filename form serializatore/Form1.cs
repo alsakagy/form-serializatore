@@ -90,6 +90,7 @@ namespace form_serializatore
             Inserisci_Oggetto.Enabled = false;
             Elimina_Oggetti.Enabled = false;
             Modifica_Oggetti.Enabled = false;
+            Salva_Oggetti.Enabled = false;
             Ricerca_Oggetti.Enabled = false;
             Lista_Oggetti.Enabled = false;
             Avvia_Ricerca.Visible = true;
@@ -97,19 +98,45 @@ namespace form_serializatore
 
         private void Avvia_Ricerca_Click(object sender, EventArgs e)
         {
+            Avvia_Ricerca.Enabled = false;
+            Fine_Ricerca.Visible = true;
             List<Persona> PersonaRicercata = new List<Persona>();
             PersonaRicercata = PersonaLista.FindAll(Criterio);
+            Lista_Oggetti.Items.Clear();
+            for (int i = 0; i < PersonaRicercata.Count; i++)
+            {
+                Lista_Oggetti.Items.Add($"Nome: {PersonaRicercata[i].Nome}   Cognome: {PersonaRicercata[i].Cognome}   Età: {PersonaRicercata[i].Età}");
+            }
         }
 
         public bool Criterio(Persona a)
         {
-            if(a.Nome != Nome_Text.Text || a.Cognome != Cognome_Text.Text || a.Età != Età_Text.Text)
+            if(a.Nome == Nome_Text.Text || a.Cognome == Cognome_Text.Text || a.Età == Età_Text.Text)
             {
-                return false;
+                return true;
             }
             else
             {
-                return true;
+                return false;
+            }
+        }
+
+        private void Fine_Ricerca_Click(object sender, EventArgs e)
+        {
+            Inserisci_Oggetto.Enabled = true;
+            Elimina_Oggetti.Enabled = true;
+            Modifica_Oggetti.Enabled = true;
+            Ricerca_Oggetti.Enabled = true;
+            Salva_Oggetti.Enabled = true;
+            Lista_Oggetti.Enabled = true;
+            Avvia_Ricerca.Enabled = true;
+            Avvia_Ricerca.Visible = false;
+            Fine_Ricerca.Visible = false;
+
+            Lista_Oggetti.Items.Clear();
+            for (int i = 0; i < PersonaLista.Count; i++)
+            {
+                Lista_Oggetti.Items.Add($"Nome: {PersonaLista[i].Nome}   Cognome: {PersonaLista[i].Cognome}   Età: {PersonaLista[i].Età}");
             }
         }
     }

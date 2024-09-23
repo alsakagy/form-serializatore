@@ -41,6 +41,7 @@
             this.Modifica_Oggetti = new System.Windows.Forms.Button();
             this.Ricerca_Oggetti = new System.Windows.Forms.Button();
             this.Avvia_Ricerca = new System.Windows.Forms.Button();
+            this.Fine_Ricerca = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // Inserisci_Oggetto
@@ -144,7 +145,6 @@
             // 
             // Ricerca_Oggetti
             // 
-            this.Ricerca_Oggetti.Enabled = false;
             this.Ricerca_Oggetti.Location = new System.Drawing.Point(358, 528);
             this.Ricerca_Oggetti.Name = "Ricerca_Oggetti";
             this.Ricerca_Oggetti.Size = new System.Drawing.Size(520, 47);
@@ -164,11 +164,23 @@
             this.Avvia_Ricerca.Visible = false;
             this.Avvia_Ricerca.Click += new System.EventHandler(this.Avvia_Ricerca_Click);
             // 
+            // Fine_Ricerca
+            // 
+            this.Fine_Ricerca.Location = new System.Drawing.Point(94, 425);
+            this.Fine_Ricerca.Name = "Fine_Ricerca";
+            this.Fine_Ricerca.Size = new System.Drawing.Size(154, 47);
+            this.Fine_Ricerca.TabIndex = 13;
+            this.Fine_Ricerca.Text = "Fine ricerca";
+            this.Fine_Ricerca.UseVisualStyleBackColor = true;
+            this.Fine_Ricerca.Visible = false;
+            this.Fine_Ricerca.Click += new System.EventHandler(this.Fine_Ricerca_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(931, 587);
+            this.Controls.Add(this.Fine_Ricerca);
             this.Controls.Add(this.Avvia_Ricerca);
             this.Controls.Add(this.Ricerca_Oggetti);
             this.Controls.Add(this.Modifica_Oggetti);
@@ -205,6 +217,7 @@
         private System.Windows.Forms.Button Modifica_Oggetti;
         private System.Windows.Forms.Button Ricerca_Oggetti;
         private System.Windows.Forms.Button Avvia_Ricerca;
+        private System.Windows.Forms.Button Fine_Ricerca;
     }
 }
 
