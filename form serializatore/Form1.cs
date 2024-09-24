@@ -82,7 +82,26 @@ namespace form_serializatore
 
         private void Modifica_Oggetti_Click(object sender, EventArgs e)
         {
+            if(Nome_Text.Text != "")
+            {
+                PersonaLista[Lista_Oggetti.SelectedIndex].Nome = Nome_Text.Text;
+            }
 
+            if (Cognome_Text.Text != "")
+            {
+                PersonaLista[Lista_Oggetti.SelectedIndex].Cognome = Cognome_Text.Text;
+            }
+            
+            if (Età_Text.Text != "")
+            {
+                PersonaLista[Lista_Oggetti.SelectedIndex].Età = Età_Text.Text;
+            }
+
+            Lista_Oggetti.Items.Clear();
+            for (int i = 0; i < PersonaLista.Count; i++)
+            {
+                Lista_Oggetti.Items.Add($"Nome: {PersonaLista[i].Nome}   Cognome: {PersonaLista[i].Cognome}   Età: {PersonaLista[i].Età}");
+            }
         }
 
         private void Ricerca_Oggetti_Click(object sender, EventArgs e)
@@ -111,7 +130,23 @@ namespace form_serializatore
 
         public bool Criterio(Persona a)
         {
-            if(a.Nome == Nome_Text.Text || a.Cognome == Cognome_Text.Text || a.Età == Età_Text.Text)
+            if (a.Nome == Nome_Text.Text && a.Cognome == Cognome_Text.Text && a.Età == Età_Text.Text)
+            {
+                return true;
+            }
+            else if (a.Nome == Nome_Text.Text && a.Cognome == Cognome_Text.Text)
+            {
+                return true;
+            }
+            else if (a.Nome == Nome_Text.Text && a.Età == Età_Text.Text)
+            {
+                return true;
+            }
+            else if (a.Cognome == Cognome_Text.Text && a.Età == Età_Text.Text)
+            {
+                return true;
+            }
+            else if (a.Nome == Nome_Text.Text || a.Cognome == Cognome_Text.Text || a.Età == Età_Text.Text)
             {
                 return true;
             }
